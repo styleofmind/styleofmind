@@ -83,3 +83,34 @@
   <strong>Ольга | Системные расстановки</strong><br/>
   <a href="https://t.me/olgastyleofmind">t.me/olgastyleofmind</a>
 </p>
+
+## Индексация и аналитика
+
+В репозитории настроены:
+
+- `robots.txt` с ссылкой на sitemap;
+- `sitemap.xml` для основных публичных страниц;
+- `404.html` для GitHub Pages;
+- `site.webmanifest`;
+- `analytics.js` с согласованием аналитики с cookie-consent.
+
+### Подключение счётчиков
+
+Реальные ID пока намеренно не указаны. В `index.html` нужно заменить:
+
+```js
+window.YM_COUNTER_ID = null;
+window.GA_ID = null;
+```
+
+на, например:
+
+```js
+window.YM_COUNTER_ID = 12345678;
+window.GA_ID = 'G-XXXXXXXXXX';
+```
+
+После этого аналитика запускается только при согласии пользователя на аналитические cookies. События, которые уже подготовлены в коде: `booking_click`, `telegram_click`, `analytics_ready`.
+
+В Яндекс Метрике для `booking_click` и `telegram_click` нужно создать соответствующие цели, чтобы видеть эти действия в отчётах.
+
