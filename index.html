@@ -165,10 +165,16 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
 .reviews-section .container > h2{margin-left:auto;margin-right:auto;text-align:center;max-width:24ch}
 .reviews-section .review-card{text-align:left}
 .reviews-section > .container > p:last-child{text-align:center;color:var(--muted);font-size:.9rem}
-.contacts-section .container > h2{margin-bottom:2rem}
-.contacts-section .contact-links{display:grid;grid-template-columns:1fr;max-width:780px;gap:.55rem}
-.contacts-section .contact-links p{max-width:72ch}
-.contacts-section .contact-links a{overflow-wrap:anywhere}
+.contacts-section .container > h2{margin-bottom:1.7rem}
+.contacts-section .contact-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:780px}
+.contacts-section .contact-link-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-width:0;min-height:72px;padding:1rem 1.15rem;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.72);text-decoration:none;box-shadow:0 8px 24px rgba(31,42,31,.035);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease}
+.contacts-section .contact-link-card:hover{transform:translateY(-2px);background:#fff;border-color:rgba(127,176,105,.28);box-shadow:0 14px 30px rgba(31,42,31,.08)}
+.contacts-section .contact-link-card__copy{min-width:0}
+.contacts-section .contact-link-card__eyebrow{display:block;margin-bottom:.18rem;color:var(--muted);font-size:.78rem;line-height:1.25}
+.contacts-section .contact-link-card__title{display:block;color:var(--text);font-size:17px;font-weight:700;line-height:1.3}
+.contacts-section .contact-link-card__arrow{flex:0 0 auto;color:var(--accent-dark);font-size:1.35rem;line-height:1}
+.contacts-section .contact-link-card--telegram{background:rgba(127,176,105,.07);border-color:rgba(127,176,105,.18)}
+.contacts-section .contact-link-card--telegram:hover{background:rgba(127,176,105,.11)}
 .faq-section .container > h2{margin-left:auto;margin-right:auto;text-align:center;max-width:24ch}
 .faq-section .faq-list{margin:0 auto}
 .final-section .container{display:flex;flex-direction:column;align-items:center}
@@ -176,7 +182,15 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
 .certs-section .section-intro{margin-left:auto;margin-right:auto;text-align:center;max-width:660px}
 
 .request-card{border-top:3px solid var(--gold)}.request-card h3{font-size:clamp(1.25rem,1.55vw,1.5rem)}
-.request-card p{font-size:.95rem;line-height:1.62}.request-outro{margin-top:2.75rem}.request-outro p{margin-bottom:1.25rem}
+.request-card p{font-size:.95rem;line-height:1.62}
+.requests-section .request-outro{max-width:900px;margin:4rem auto 0;padding:2rem 0 0;border-top:1px solid rgba(46,46,46,.11);text-align:center}
+.requests-section .request-outro p{margin-left:auto;margin-right:auto}
+.requests-section .request-outro p:first-child{max-width:72ch;margin-bottom:1.9rem;font-size:1.02rem;line-height:1.72}
+.requests-section .request-outro p:nth-child(2),
+.requests-section .request-outro p:nth-child(3){max-width:38rem;color:var(--muted);font-family:'Lora',Georgia,serif;font-size:1.04rem;line-height:1.52}
+.requests-section .request-outro p:nth-child(2){margin-bottom:.65rem;padding-top:1.15rem;border-top:1px solid rgba(232,199,122,.38)}
+.requests-section .request-outro p:nth-child(3){margin-bottom:0}
+
 
 
 /* Интерактивная галерея специалиста */
@@ -212,6 +226,40 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
 }
 .offer::before{content:"";position:absolute;inset:12px;border:1px solid rgba(127,176,105,.12);border-radius:calc(var(--radius-xl) - 10px);pointer-events:none}
 .offer .btn{position:relative;width:100%}
+
+.diagnostic-offer{
+  display:flex;
+  flex-direction:column;
+  align-self:stretch;
+  justify-content:center;
+  padding:clamp(1.7rem,3vw,2.5rem);
+}
+.diagnostic-offer__eyebrow{
+  margin:0 0 .85rem;
+  color:var(--accent-dark);
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.diagnostic-offer__price{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:.65rem;
+  margin-bottom:1.15rem;
+}
+.diagnostic-offer__price strong{
+  font-family:'Lora',serif;
+  font-size:clamp(2rem,3vw,2.65rem);
+  line-height:1;
+  letter-spacing:-.025em;
+}
+.diagnostic-offer__price s{
+  color:var(--muted);
+  font-size:1rem;
+}
 
 .feelings-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}
 .feeling-card{text-align:center;padding:1.8rem 1rem}.feeling-icon{display:block;margin-bottom:.7rem;font-size:32px;line-height:1;color:var(--accent-dark)}
@@ -325,10 +373,18 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
 @media (max-width:767px){
   .process-section .process-copy{width:100%;max-width:none}
   .header-inner{min-width:0}
-  .reviews-swiper{padding-left:2.75rem;padding-right:2.75rem}
+  .reviews-swiper{padding:.5rem 0 3.5rem}
+  .reviews-swiper .swiper-slide{width:100%}
+  .review-card{padding:1.35rem 1.2rem}
+  .review-card p{font-size:16px;line-height:1.68}
+  .review-card strong{font-size:16px}
+  .review-city{font-size:13.5px}
   .review-controls .swiper-button-prev{left:0}
   .review-controls .swiper-button-next{right:0}
   .contact-links{min-width:0}
+  .contacts-section .contact-links{grid-template-columns:1fr;gap:.75rem}
+  .contacts-section .contact-link-card{min-height:66px;padding:.9rem 1rem}
+  .contacts-section .contact-link-card__title{font-size:16px}
   .contact-links p{min-width:0;overflow-wrap:anywhere}
 }
 
@@ -355,9 +411,11 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
   .hero{min-height:0;padding:4.4rem 0 4rem}.hero-grid{grid-template-columns:1fr;gap:2rem}.hero-copy{max-width:none}
   .hero-subtitle{font-size:18px;max-width:34ch}.hero-video{max-width:300px;justify-self:center}.hero-video .video-frame{position:relative;overflow:hidden;aspect-ratio:9/16;border-radius:var(--radius-xl);background:var(--dark);border:1px solid rgba(255,255,255,.45);box-shadow:var(--shadow-strong)}.hero-orb--green{width:250px;height:250px;left:-180px;top:-120px}.hero-orb--gold{width:300px;height:300px;right:-190px;bottom:-170px}
   .hero-aura,.hero-sparkles{display:none}.hero-cta{width:100%}.btn{min-height:54px;width:auto;padding:.85rem 1.15rem}.btn-pulse{animation:none}
-  .cards-grid{grid-template-columns:1fr;gap:1rem}.card{padding:1.35rem;border-radius:17px}.card:hover{transform:none;box-shadow:var(--shadow)}.requests-section .request-outro{text-align:left;margin-top:2.5rem}
+  .cards-grid{grid-template-columns:1fr;gap:1rem}.card{padding:1.35rem;border-radius:17px}.card:hover{transform:none;box-shadow:var(--shadow)}.requests-section .request-outro{text-align:left;margin-top:2.75rem;padding-top:1.65rem}.requests-section .request-outro p:first-child{font-size:16px;line-height:1.66;margin-bottom:1.6rem}.requests-section .request-outro p:nth-child(2),.requests-section .request-outro p:nth-child(3){max-width:none;font-size:16px;line-height:1.58}.requests-section .request-outro p:nth-child(2){margin-left:0;margin-right:0;padding:1rem 0 0;border-top:1px solid rgba(232,199,122,.34)}
   .request-card h3{font-size:1.26rem}.request-card p{font-size:15px}.advantages{margin-top:4rem}
   .diagnostic-inner,.approach-grid{grid-template-columns:minmax(0,1fr);gap:2rem}.diagnostic-section .text-column,.process-section .text-column,.approach-section .approach-grid > div:not(.magic-cat){max-width:none}.diagnostic-section .offer{width:100%;justify-self:stretch;max-width:none}.offer{padding:1.35rem;border-radius:20px}
+  .diagnostic-offer{padding:1.35rem}
+  .diagnostic-offer__price strong{font-size:2.15rem}
   .process-section .btn[data-booking]{display:flex;width:100%;max-width:420px;margin-left:auto;margin-right:auto}
   .feelings-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.feeling-card{padding:1.25rem .45rem}.feeling-card h3{font-size:16px}
   .approach-photo{aspect-ratio:4/5;max-height:none}.price-card .price{font-size:1.7rem}.price-card .btn{align-self:stretch;width:100%}
@@ -880,7 +938,8 @@ h3{
   .hero-subtitle{font-size:17px}
   .card p,.request-card p,.price-card > p:not(.price){font-size:15px}
   .feel-rasstanovki__text{font-size:15px}
-  .review-card p{font-size:15px}
+  .review-card{padding:1.3rem 1.05rem}
+  .review-card p{font-size:15.75px;line-height:1.68}
   .faq-item summary{font-size:16px}
   .faq-answer,.faq-answer p,.faq-answer li{font-size:15px}
   .cert-caption{font-size:12.25px}
@@ -996,8 +1055,13 @@ h3{
 <p>Онлайн-формат доступен клиентам из любой точки мира.</p>
 <p class="small muted">* Генограмма — это схема, которая визуализирует семейную систему: родственные связи, ключевые события. Это не просто генеалогическое древо, а «карта» эмоциональных процессов, передающихся в семье из поколения в поколение.</p>
 </div>
-<div class="offer" data-aos="fade-up" data-aos-delay="100">
-<a class="btn btn-primary" data-booking="" href="https://dikidi.ru/#widget=218868">Записаться на диагностику за 1200 руб <s>3500 руб</s></a>
+<div class="offer diagnostic-offer" data-aos="fade-up" data-aos-delay="100" aria-label="Диагностическая сессия">
+  <p class="diagnostic-offer__eyebrow">Диагностическая сессия</p>
+  <div class="diagnostic-offer__price">
+    <strong>1200 руб</strong>
+    <s>3500 руб</s>
+  </div>
+  <a class="btn btn-primary" data-booking="" href="https://dikidi.ru/#widget=218868">Записаться на диагностику</a>
 </div>
 </div>
 </section>
@@ -1146,8 +1210,14 @@ h3{
 <div class="container">
 <h2 class="magic-heading" id="contacts-title">Контакты и блог</h2>
 <div class="contact-links">
-<p>Блог: <a href="index.html">статьи</a>.</p>
-<p>Контакты: Telegram-канал: <a href="https://t.me/olgastyleofmind" rel="noopener" target="_blank">https://t.me/olgastyleofmind</a></p>
+<a class="contact-link-card" href="blog.html" aria-label="Открыть блог — статьи">
+<span class="contact-link-card__copy"><span class="contact-link-card__eyebrow">Блог</span><span class="contact-link-card__title">Статьи и заметки</span></span>
+<span aria-hidden="true" class="contact-link-card__arrow">↗</span>
+</a>
+<a class="contact-link-card contact-link-card--telegram" href="https://t.me/olgastyleofmind" rel="noopener noreferrer" target="_blank" aria-label="Перейти в Telegram-канал">
+<span class="contact-link-card__copy"><span class="contact-link-card__eyebrow">Telegram</span><span class="contact-link-card__title">Перейти в канал</span></span>
+<span aria-hidden="true" class="contact-link-card__arrow">↗</span>
+</a>
 </div>
 </div>
 </section>
