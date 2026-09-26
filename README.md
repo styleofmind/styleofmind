@@ -102,7 +102,6 @@
 
 ```js
 window.YM_COUNTER_ID = 113093974;
-window.GA_ID = null; // Google Analytics is managed through GTM.
 ```
 
 на, например:
