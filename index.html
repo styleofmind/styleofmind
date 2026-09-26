@@ -10,6 +10,7 @@
 <meta content="Решение проблем в отношениях методом системных семейных расстановок." property="og:description"/>
 <meta content="website" property="og:type"/>
 <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🌿&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<link href="site.webmanifest" rel="manifest"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
@@ -1380,9 +1381,11 @@ h3{
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <!-- DIKIDI WIDGET -->
 <script src="https://dikidi.ru/assets/js/widget_record/widget2.min.js?v=1773811740" type="text/javascript"></script>
-<!-- ANALYTICS: intentionally disabled until real IDs are provided. -->
+<!-- ANALYTICS: IDs are intentionally empty until real counters are provided. -->
+<script>window.YM_COUNTER_ID = null; window.GA_ID = null;</script>
+<script src="analytics.js" defer></script>
 <!-- MAIN JS -->
-<script>window.YM_COUNTER_ID = null; window.GA_ID = null;</script><script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cookieConsent = document.getElementById('cookieConsent');
@@ -1403,6 +1406,7 @@ document.addEventListener('DOMContentLoaded', function () {
     try { setCookie(COOKIE_KEY, value, 180); } catch(e) {}
     if (cookieConsent) cookieConsent.hidden = true;
     window.cookieConsent = value;
+    window.dispatchEvent(new CustomEvent('olgaConsentChanged'));
   };
   window.cookieConsent = savedConsent || null;
   if (cookieConsent && !savedConsent) cookieConsent.hidden = false;
