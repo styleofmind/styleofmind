@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Служебные страницы не нужны в поиске
-Disallow: /presentation.html
-Disallow: /404.html
-
 Sitemap: https://styleofmind.github.io/sitemap.xml
