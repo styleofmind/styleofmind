@@ -99,8 +99,8 @@
 Реальные ID пока намеренно не указаны. В `index.html` нужно заменить:
 
 ```js
-window.YM_COUNTER_ID = null;
-window.GA_ID = null;
+window.YM_COUNTER_ID = 113093974;
+window.GA_ID = null; // Google Analytics is managed through GTM.
 ```
 
 на, например:
@@ -114,3 +114,8 @@ window.GA_ID = 'G-XXXXXXXXXX';
 
 В Яндекс Метрике для `booking_click` и `telegram_click` нужно создать соответствующие цели, чтобы видеть эти действия в отчётах.
 
+
+
+### Google Tag Manager
+
+На главной странице подключён Google Tag Manager **GTM-PFM66NP6**. Google Analytics, рекламные и другие Google-теги при необходимости следует настраивать внутри этого контейнера, чтобы не устанавливать отдельный GA-код второй раз на сайте.
