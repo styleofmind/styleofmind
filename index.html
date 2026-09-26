@@ -629,8 +629,52 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
   -webkit-user-drag:none;
   cursor:grab;
 }
-.process-section .process-figures{cursor:grab;}
+.process-figures-wrap{
+  position:relative;
+  width:min(100%,1080px);
+  max-width:1080px;
+  margin:1.8rem auto 0;
+}
+.process-section .process-figures{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0 .1rem .75rem;
+  cursor:grab;
+}
 .process-section .process-figures:active{cursor:grabbing;}
+.process-gallery-arrow{
+  position:absolute;
+  top:50%;
+  z-index:3;
+  width:44px;
+  height:44px;
+  margin-top:-22px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(46,46,46,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:var(--dark);
+  box-shadow:0 8px 22px rgba(31,42,31,.12);
+  font-size:1.6rem;
+  line-height:1;
+  cursor:pointer;
+  transition:transform .2s ease,background .2s ease,box-shadow .2s ease,opacity .2s ease;
+}
+.process-gallery-arrow:hover{
+  transform:translateY(-50%) scale(1.04);
+  background:#fff;
+  box-shadow:0 12px 28px rgba(31,42,31,.16);
+}
+.process-gallery-arrow--prev{left:-14px;}
+.process-gallery-arrow--next{right:-14px;}
+.process-gallery-arrow:disabled{
+  opacity:.35;
+  cursor:default;
+  transform:none;
+  box-shadow:none;
+}
 
 
 /* === ТИПОГРАФИЧЕСКАЯ НАСТРОЙКА: единая шкала текста === */
@@ -1085,6 +1129,8 @@ h3{
 <p>В результате система качественно меняется.</p><p>Вы уносите с собой результат на телесном и энергетическом уровне.</p><p>Расстановка запускает движение в системе.</p><p>В жизни могут начать происходить события, способствующие решению запроса, с которым вы обратились.</p><p>До конца понять, что такое расстановка, можно только поучаствовав в ней.</p>
 <a class="btn btn-primary" data-booking="" href="https://dikidi.ru/#widget=218868">Записаться на расстановку</a>
 </div>
+<div class="process-figures-wrap">
+<button type="button" class="process-gallery-arrow process-gallery-arrow--prev" aria-label="Предыдущие фотографии">‹</button>
 <div aria-label="Фотографии расстановок и фигурок" class="process-figures" data-aos="fade-left">
 <img alt="Расстановка офлайн — пример 1" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='assets/rasstanovki/offline-1.webp';" src="assets/rasstanovki/offline-1.webp"/>
 <img alt="Расстановка онлайн — пример" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='./assets/rasstanovki/online-2.webp';" src="./assets/rasstanovki/online-2.webp"/>
@@ -1092,6 +1138,8 @@ h3{
 <img alt="Расстановка офлайн — пример 3" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='./assets/rasstanovki/offline-3.webp';" src="./assets/rasstanovki/offline-3.webp"/>
 <img alt="Расстановка на фигурках — пример 1" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='./assets/rasstanovki/figures-1.webp';" src="./assets/rasstanovki/figures-1.webp"/>
 <img alt="Расстановка на фигурках — пример 2" decoding="async" loading="lazy" onerror="this.onerror=null;this.src='./assets/rasstanovki/figures-2.webp';" src="./assets/rasstanovki/figures-2.webp"/>
+</div>
+<button type="button" class="process-gallery-arrow process-gallery-arrow--next" aria-label="Следующие фотографии">›</button>
 </div>
 </div></div></section>
 <!-- ЧТО ПОЧУВСТВУЕТЕ -->
@@ -1630,6 +1678,28 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!window.PointerEvent) return;
   const carousels = document.querySelectorAll('.process-section .process-figures');
   carousels.forEach((carousel) => {
+    const wrap = carousel.closest('.process-figures-wrap');
+    const prev = wrap ? wrap.querySelector('.process-gallery-arrow--prev') : null;
+    const next = wrap ? wrap.querySelector('.process-gallery-arrow--next') : null;
+
+    const updateArrows = () => {
+      if (!prev || !next) return;
+      const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+      prev.disabled = carousel.scrollLeft <= 2;
+      next.disabled = carousel.scrollLeft >= maxScroll - 2;
+    };
+
+    const scrollByStep = (direction) => {
+      const step = Math.max(carousel.clientWidth * .72, 290);
+      carousel.scrollBy({left: step * direction, behavior: 'smooth'});
+    };
+
+    if (prev) prev.addEventListener('click', () => scrollByStep(-1));
+    if (next) next.addEventListener('click', () => scrollByStep(1));
+    carousel.addEventListener('scroll', updateArrows, {passive:true});
+    window.addEventListener('resize', updateArrows);
+    requestAnimationFrame(updateArrows);
+
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
