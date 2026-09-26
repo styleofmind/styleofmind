@@ -1,7 +1,7 @@
 /* Analytics loader for static GitHub Pages site.
    Add real IDs in index.html:
-   window.YM_COUNTER_ID = 12345678;
-   window.GA_ID = 'G-XXXXXXXXXX';
+   window.YM_COUNTER_ID = 113093974;
+   window.GA_ID = null; // Google Analytics is managed through GTM.
    Tracking starts only after analytical-cookie consent.
 */
 (() => {
