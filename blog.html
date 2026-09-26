@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Блог | Системные расстановки — Ольга</title>
+  <title>Блог | Системные расстановки — Ольга Сусленникова</title>
   <meta name="description" content="Блог Ольги о системных семейных расстановках, отношениях и семейных сценариях. Последние публикации — в Telegram.">
   <meta name="robots" content="index,follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,13 +171,16 @@
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
     }
-  </style>
+  .brand-mobile{display:none}
+
+@media (max-width:767px){.brand-full{display:none}.brand-mobile{display:inline}}
+</style>
 </head>
 <body>
   <div class="page">
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html">Ольга | Расстановки</a>
+        <a class="brand" href="index.html"><span class="brand-full">Ольга Сусленникова</span><span class="brand-mobile">Ольга</span></a>
         <a class="btn btn-primary" href="index.html">На главную</a>
       </div>
     </header>
@@ -205,7 +208,7 @@
 
     <footer>
       <div class="container">
-        <p>© Ольга | Системные расстановки</p>
+        <p>© Ольга Сусленникова | Системные расстановки</p>
       </div>
     </footer>
   </div>
