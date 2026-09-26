@@ -41,15 +41,18 @@
     window.ym = window.ym || function(){ (window.ym.a = window.ym.a || []).push(arguments); };
     window.ym.l = Date.now();
     const s = document.createElement('script');
-    s.src = 'https://mc.yandex.ru/metrika/tag.js';
+    s.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + encodeURIComponent(YM_ID);
     s.async = true;
     document.head.appendChild(s);
     window.ym(YM_ID, 'init', {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
+      ssr: true,
       webvisor: true,
-      defer: true
+      clickmap: true,
+      ecommerce: 'dataLayer',
+      referrer: document.referrer,
+      url: location.href,
+      accurateTrackBounce: true,
+      trackLinks: true
     });
   };
 
