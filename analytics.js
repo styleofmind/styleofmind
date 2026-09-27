@@ -1,6 +1,7 @@
 /* Consent-gated analytics loader for the static GitHub Pages site.
    Yandex Metrika: configured through window.YM_COUNTER_ID.
-   Google Analytics and other GTM-managed tags: GTM-PFM66NP6.
+   Google Analytics 4: G-L3K3HMRF2Z, loaded only after analytics consent.
+   Other GTM-managed tags: GTM-PFM66NP6.
    No analytics vendor script is requested until analytical consent is granted.
 */
 (() => {
@@ -9,9 +10,11 @@
   const CONSENT_KEY = 'olga_cookie_consent';
   const CONSENT_TTL_MS = 180 * 24 * 60 * 60 * 1000;
   const GTM_ID = 'GTM-PFM66NP6';
+  const GA4_ID = 'G-L3K3HMRF2Z';
   const YM_ID = window.YM_COUNTER_ID;
   let analyticsAllowed = false;
   let gtmRequested = false;
+  let gaRequested = false;
   let ymRequested = false;
   let eventsBound = false;
   let googleConsentInitialized = false;
@@ -131,6 +134,27 @@
     });
   };
 
+  const initGoogleAnalytics = () => {
+    if (gaRequested || !GA4_ID) return;
+    gaRequested = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    script.onerror = () => {
+      gaRequested = false;
+      console.warn('[analytics] Google Analytics failed to load');
+    };
+    document.head.appendChild(script);
+
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID);
+  };
+
   const loadGtm = () => {
     if (gtmRequested || !GTM_ID) return;
     gtmRequested = true;
@@ -234,6 +258,7 @@
     setYandexOptOut(false);
     updateGoogleConsent(true);
     initYandex();
+    initGoogleAnalytics();
     loadGtm();
     bindEvents();
     track('analytics_ready');
