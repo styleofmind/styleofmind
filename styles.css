@@ -168,6 +168,8 @@ p{margin:0 0 1.5rem} p:last-child{margin-bottom:0}
 
 .request-card{border-top:3px solid var(--gold)}.request-card h3{font-size:clamp(1.25rem,1.55vw,1.5rem)}
 .request-card p{font-size:.95rem;line-height:1.62}
+.request-card p{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.42rem;margin-top:.95rem}
+.request-example{display:inline-flex;align-items:flex-start;max-width:100%;min-width:0;padding:.3rem .55rem;border:1px solid rgba(127,176,105,.13);border-radius:9px;background:rgba(127,176,105,.065);font-style:italic;line-height:1.48;overflow-wrap:anywhere}
 .requests-section .request-outro{max-width:900px;margin:4rem auto 0;padding:2rem 0 0;border-top:1px solid rgba(46,46,46,.11);text-align:center}
 
 .requests-section .request-outro p:first-child{max-width:72ch;margin-bottom:1.9rem;font-size:1.02rem;line-height:1.72}
