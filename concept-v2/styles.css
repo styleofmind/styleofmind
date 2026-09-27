@@ -120,7 +120,8 @@ summary:focus-visible {
   margin-inline: auto;
 }
 
-.desktop-nav a {
+.desktop-nav a,
+.desktop-nav .nav-pending {
   position: relative;
   padding: 9px 0;
   color: #e5e1d8;
@@ -292,7 +293,8 @@ summary:focus-visible {
     box-shadow: 0 16px 38px rgba(5,10,17,.28);
   }
 
-  .mobile-menu nav a {
+  .mobile-menu nav a,
+.mobile-menu nav .nav-pending {
     padding: 11px 12px;
     border-radius: 8px;
     color: var(--cream-light);
@@ -316,3 +318,7 @@ summary:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* Пункты меню показываются заранее, но не выглядят активными до создания секций. */
+.nav-pending { cursor: default; opacity: .72; }
+.mobile-menu nav .nav-pending { display:block; padding:11px 12px; border-radius:8px; color:#c4c5c0; font-size:13px; }
