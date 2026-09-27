@@ -10,7 +10,7 @@
 .mobile-menu{display:none}
 
 .hero{position:relative;min-height:700px;overflow:hidden;isolation:isolate;color:var(--cream2);background:#09151d}
-.hero-bg-image{position:absolute;inset:0;z-index:-4;background-image:linear-gradient(90deg,rgba(6,14,21,.2),rgba(6,14,21,.05)),url("assets/золотая_космическая_россыпь_на_тёмном_фоне.png");background-size:cover;background-position:center;filter:saturate(.82) brightness(.83)}
+.hero-bg-image{position:absolute;inset:0;z-index:-4;background-image:linear-gradient(90deg,rgba(6,14,21,.2),rgba(6,14,21,.05)),url("assets/generated/золотая_космическая_россыпь_на_тёмном_фоне.png");background-size:cover;background-position:center;filter:saturate(.82) brightness(.83)}
 .hero:before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(circle at 68% 48%,rgba(239,198,126,.22),transparent 25%),radial-gradient(circle at 26% 45%,rgba(42,70,85,.4),transparent 38%),linear-gradient(180deg,rgba(3,10,15,.14),rgba(3,10,15,.28))}
 .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:32%;z-index:-2;background:linear-gradient(180deg,transparent,rgba(3,10,15,.46))}
 .hero-inner{position:relative;z-index:4;min-height:700px;padding-top:84px;display:grid;grid-template-columns:minmax(0,.88fr) minmax(450px,1.12fr);align-items:end}
