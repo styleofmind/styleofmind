@@ -212,8 +212,9 @@
       }
     } catch (_) {}
     try {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(Object.assign({}, params, { event: name }));
+      if (GA4_ID && typeof window.gtag === 'function') {
+        window.gtag('event', name, Object.assign({ send_to: GA4_ID }, params));
+      }
     } catch (_) {}
   };
 
