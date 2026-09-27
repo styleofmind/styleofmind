@@ -14,6 +14,8 @@
 <p align="center">
   <a href="https://t.me/olgastyleofmind">Telegram</a>
   &nbsp;·&nbsp;
+  <a href="https://dikidi.ru/2128366?p=0.pi">Чат DIKIDI</a>
+  &nbsp;·&nbsp;
   <a href="https://dikidi.ru/#widget=218868">Записаться</a>
 </p>
 
