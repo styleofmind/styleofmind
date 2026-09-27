@@ -243,9 +243,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    cat._poseTimer = setInterval(function () {
-      if (!document.hidden) showPose(poseIndex + 1, false);
-    }, 4200);
+    // Keep the illustration interactive everywhere; only auto-animate when motion is allowed.
+    if (!prefersReducedMotion) {
+      cat._poseTimer = setInterval(function () {
+        if (!document.hidden) showPose(poseIndex + 1, false);
+      }, 4200);
+    }
 
     function openEgg() {
       const egg = document.getElementById('catEgg');
@@ -274,9 +277,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  if (desktopMagic) {
-    document.querySelectorAll('[data-cat-clickable]').forEach(initMagicCat);
-  }
+  // Cats are interactive on desktop and mobile, including when reduced motion is enabled.
+  document.querySelectorAll('[data-cat-clickable]').forEach(initMagicCat);
 
   // GSAP-параллакс hero-сфер — мягкий и только desktop
   if (desktopMagic && window.gsap && window.ScrollTrigger) {
