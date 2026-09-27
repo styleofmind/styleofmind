@@ -5,16 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#111923">
-  <title>Новая версия сайта — концепт в разработке</title>
-  <meta name="description" content="Отдельный концепт сайта Style of Mind. Создаётся постепенно, блок за блоком.">
+  <title>Style of Mind — новая версия сайта</title>
+  <meta name="description" content="Отдельный концепт сайта Ольги Сусленниковой. Новая версия создаётся постепенно, блок за блоком.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="workbench">
-    <p class="workbench__eyebrow">Style of Mind · концепт v2</p>
-    <h1>Новая версия сайта</h1>
-    <p>Эта отдельная страница создаётся постепенно: сначала композиция, затем каждый блок, иллюстрация и декоративный элемент.</p>
-    <p class="workbench__note">Черновая основа проекта. Существующий сайт не изменён.</p>
+  <a class="skip-link" href="#concept-note">Перейти к содержанию</a>
+
+  <!-- Этап 1: шапка сайта -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Style of Mind — на главную">
+        <img class="brand-mark" src="assets/objects/brand-mark.svg" alt="" width="48" height="48">
+        <span class="brand-copy">
+          <span class="brand-name">Style of Mind</span>
+          <span class="brand-subtitle">психолог · расстановки</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#about">Обо мне</a>
+        <a href="#method">Метод</a>
+        <a href="#formats">Форматы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="button button-outline header-booking"
+         href="https://dikidi.ru/#widget=218868"
+         target="_blank" rel="noopener noreferrer">
+        Записаться <span aria-hidden="true">↗</span>
+      </a>
+
+      <details class="mobile-menu">
+        <summary aria-label="Открыть меню">
+          <span>Меню</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </summary>
+        <nav aria-label="Мобильная навигация">
+          <a href="#about">Обо мне</a>
+          <a href="#method">Метод</a>
+          <a href="#formats">Форматы</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#faq">FAQ</a>
+          <a class="mobile-booking" href="https://dikidi.ru/#widget=218868" target="_blank" rel="noopener noreferrer">Записаться ↗</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="concept-note" class="concept-stage">
+    <p class="stage-eyebrow">Style of Mind · концепт v2</p>
+    <h1>Шапка сайта готова</h1>
+    <p>Первый элемент новой версии — логотип, навигация и кнопка записи. Следующим шагом отдельно подготовим фон первого экрана, затем главный визуальный объект и текст.</p>
+    <p class="stage-note">Это отдельный прототип. Действующая главная страница сайта не изменена.</p>
   </main>
 </body>
 </html>
