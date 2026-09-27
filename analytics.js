@@ -22,7 +22,24 @@
     let localValue = null;
     let cookieValue = null;
     try {
-      localValue = validConsent(localStorage.getItem(CONSENT_KEY));
+      const rawValue = localStorage.getItem(CONSENT_KEY);
+      let expiresAt = Number(localStorage.getItem(CONSENT_KEY + '_expires'));
+      if (validConsent(rawValue)) {
+        // Migrate a legacy stored choice once, then enforce a finite lifetime.
+        if (!expiresAt) {
+          expiresAt = Date.now() + CONSENT_TTL_MS;
+          localStorage.setItem(CONSENT_KEY + '_expires', String(expiresAt));
+        }
+        if (Date.now() <= expiresAt) {
+          localValue = rawValue;
+        } else {
+          localStorage.removeItem(CONSENT_KEY);
+          localStorage.removeItem(CONSENT_KEY + '_expires');
+        }
+      } else if (rawValue !== null) {
+        localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem(CONSENT_KEY + '_expires');
+      }
     } catch (_) {}
     try {
       const match = document.cookie.match(/(?:^|; )olga_cookie_consent=([^;]*)/);
@@ -34,7 +51,6 @@
     if (localValue === 'all' || cookieValue === 'all') return 'all';
     return null;
   };
-
   const setYandexOptOut = (disabled) => {
     if (YM_ID) {
       window['disableYaCounter' + YM_ID] = Boolean(disabled);
@@ -52,7 +68,7 @@
     try {
       document.cookie.split(';').forEach((cookie) => {
         const name = cookie.split('=')[0].trim();
-        if (/^_(?:ga(?:_|$)|gid$|gat(?:_|$)|gcl_|gac_|ym(?:_|$|\d))/.test(name)) {
+        if (/^(?:_(?:ga(?:_|$)|gid$|gat(?:_|$)|gcl_|gac_|ym(?:_|$|\d))|ytm_(?:tf|tag)_|zz$)/.test(name)) {
           names.add(name);
         }
       });
@@ -79,7 +95,7 @@
         const keys = [];
         for (let i = 0; i < storage.length; i += 1) {
           const key = storage.key(i);
-          if (key && /^_(?:ga(?:_|$)|gid$|gat(?:_|$)|gcl_|gac_|ym(?:_|$|\d))/.test(key)) {
+          if (key && /^(?:_(?:ga(?:_|$)|gid$|gat(?:_|$)|gcl_|gac_|ym(?:_|$|\d))|ytm_(?:tf|tag)_|zz$)/.test(key)) {
             keys.push(key);
           }
         }
