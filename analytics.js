@@ -7,6 +7,7 @@
   'use strict';
 
   const CONSENT_KEY = 'olga_cookie_consent';
+  const CONSENT_TTL_MS = 180 * 24 * 60 * 60 * 1000;
   const GTM_ID = 'GTM-PFM66NP6';
   const YM_ID = window.YM_COUNTER_ID;
   let analyticsAllowed = false;
