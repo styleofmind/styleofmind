@@ -96,6 +96,21 @@ document.addEventListener('DOMContentLoaded', function () {
   updateProgress();
   window.addEventListener('scroll', updateProgress, {passive:true});
 
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    const toggleScrollTop = function(){
+      const visible = window.scrollY > 300;
+      scrollTopBtn.classList.toggle('show', visible);
+      scrollTopBtn.setAttribute('aria-hidden', String(!visible));
+      scrollTopBtn.tabIndex = visible ? 0 : -1;
+    };
+    toggleScrollTop();
+    window.addEventListener('scroll', toggleScrollTop, {passive:true});
+    scrollTopBtn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:prefersReducedMotion ? 'auto' : 'smooth'});
+    });
+  }
+
   if (desktopMagic && window.AOS) {
     AOS.init({duration:760, once:true, offset:90, easing:'ease-out-cubic'});
   }
