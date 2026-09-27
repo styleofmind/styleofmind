@@ -1028,3 +1028,13 @@ h3{
   .hero-sparkles i{animation:none;opacity:.28;transform:none}
   .hero-sparkles i::before{opacity:.28}
 }
+
+/* На мобильных оставляем короткую подпись рядом со знаком бренда. */
+@media (max-width:767px){
+  .brand-full{display:none}
+  .brand-mobile{display:inline}
+}
+@media (min-width:768px){
+  .brand-full{display:inline}
+  .brand-mobile{display:none}
+}
