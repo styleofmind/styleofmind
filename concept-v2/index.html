@@ -4,60 +4,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#111923">
-  <title>Style of Mind — новая версия сайта</title>
-  <meta name="description" content="Отдельный концепт сайта Ольги Сусленниковой. Новая версия создаётся постепенно, блок за блоком.">
+  <title>Style of Mind — концепт v2</title>
+  <meta name="description" content="Концепт новой страницы Style of Mind.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#concept-note">Перейти к содержанию</a>
+  <a class="skip-link" href="#hero-title">Перейти к содержанию</a>
 
-  <!-- Этап 1: шапка сайта -->
-  <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="Style of Mind — на главную">
-        <img class="brand-mark" src="assets/objects/brand-mark.svg" alt="" width="48" height="48">
-        <span class="brand-copy">
-          <span class="brand-name">Style of Mind</span>
-          <span class="brand-subtitle">психолог · расстановки</span>
-        </span>
-      </a>
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-stars" aria-hidden="true">
+        <i class="star s1"></i><i class="star s2"></i><i class="star s3"></i>
+        <i class="star s4"></i><i class="star s5"></i><i class="star s6"></i>
+      </div>
+      <div class="hero-lines" aria-hidden="true"></div>
 
-      <nav class="desktop-nav" aria-label="Основная навигация">
-        <span class="nav-pending" aria-disabled="true" title="Раздел появится на следующем этапе">Обо мне</span>
-        <span class="nav-pending" aria-disabled="true" title="Раздел появится на следующем этапе">Метод</span>
-        <span class="nav-pending" aria-disabled="true" title="Раздел появится на следующем этапе">Форматы</span>
-        <span class="nav-pending" aria-disabled="true" title="Раздел появится на следующем этапе">Отзывы</span>
-        <span class="nav-pending" aria-disabled="true" title="Раздел появится на следующем этапе">FAQ</span>
-      </nav>
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="#top" aria-label="Style of Mind — на главную">
+            <img class="brand-mark" src="assets/objects/brand-mark.svg" alt="" width="48" height="48">
+            <span class="brand-copy">
+              <span class="brand-name">Style of Mind</span>
+              <span class="brand-subtitle">психолог · расстановки</span>
+            </span>
+          </a>
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="#about">Обо мне</a>
+            <a href="#method">Метод</a>
+            <a href="#formats">Форматы</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+          <a class="button button-outline header-booking" href="https://dikidi.ru/#widget=218868" target="_blank" rel="noopener noreferrer">
+            Записаться <span aria-hidden="true">↗</span>
+          </a>
+          <details class="mobile-menu">
+            <summary aria-label="Открыть меню"><span>Меню</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></summary>
+            <nav aria-label="Мобильная навигация">
+              <a href="#about">Обо мне</a>
+              <a href="#method">Метод</a>
+              <a href="#formats">Форматы</a>
+              <a href="#reviews">Отзывы</a>
+              <a href="#faq">FAQ</a>
+              <a class="mobile-booking" href="https://dikidi.ru/#widget=218868" target="_blank" rel="noopener noreferrer">Записаться ↗</a>
+            </nav>
+          </details>
+        </div>
+      </header>
 
-      <a class="button button-outline header-booking"
-         href="https://dikidi.ru/#widget=218868"
-         target="_blank" rel="noopener noreferrer">
-        Записаться <span aria-hidden="true">↗</span>
-      </a>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Глубина · осознанность · выбор</p>
+          <h1 id="hero-title">Расставить<br>точки над «МЫ»</h1>
+          <p class="hero-lead">Психологическая работа с семейной историей, отношениями и внутренними конфликтами. Чтобы лучше понять себя, свои связи и сделать осознанный выбор.</p>
+          <a class="button button-primary" href="https://dikidi.ru/#widget=218868" target="_blank" rel="noopener noreferrer">Записаться на консультацию <span aria-hidden="true">→</span></a>
+        </div>
 
-      <details class="mobile-menu">
-        <summary aria-label="Открыть меню">
-          <span>Меню</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
-        </summary>
-        <nav aria-label="Мобильная навигация">
-          <span class="nav-pending" aria-disabled="true">Обо мне</span>
-          <span class="nav-pending" aria-disabled="true">Метод</span>
-          <span class="nav-pending" aria-disabled="true">Форматы</span>
-          <span class="nav-pending" aria-disabled="true">Отзывы</span>
-          <span class="nav-pending" aria-disabled="true">FAQ</span>
-          <a class="mobile-booking" href="https://dikidi.ru/#widget=218868" target="_blank" rel="noopener noreferrer">Записаться ↗</a>
-        </nav>
-      </details>
-    </div>
-  </header>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-glow"></div>
+          <div class="hero-portrait"><img src="assets/objects/hero-portrait.webp" alt=""></div>
+        </div>
+      </div>
+    </section>
 
-  <main id="concept-note" class="concept-stage">
-    <p class="stage-eyebrow">Style of Mind · концепт v2</p>
-    <h1>Шапка сайта готова</h1>
-    <p>Первый элемент новой версии — логотип, навигация и кнопка записи. Пункты меню станут активными по мере создания соответствующих разделов. Следующим шагом отдельно подготовим фон первого экрана, затем главный визуальный объект и текст.</p>
-    <p class="stage-note">Это отдельный прототип. Действующая главная страница сайта не изменена.</p>
+    <section class="section-placeholder" id="about">
+      <p>Следующий блок: преимущества и подход.</p>
+    </section>
+    <section class="section-anchor" id="method" aria-hidden="true"></section>
+    <section class="section-anchor" id="formats" aria-hidden="true"></section>
+    <section class="section-anchor" id="reviews" aria-hidden="true"></section>
+    <section class="section-anchor" id="faq" aria-hidden="true"></section>
   </main>
 </body>
 </html>
