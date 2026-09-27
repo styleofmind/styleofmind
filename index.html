@@ -1460,8 +1460,7 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   window.cookieConsent = readSavedConsent();
-  if (cookieConsent) cookieConsent.hidden = false;
-  if (cookieConsent && window.cookieConsent) cookieConsent.hidden = true;
+  if (cookieConsent) cookieConsent.hidden = Boolean(window.cookieConsent);
 
   const openCookieSettings = function(){
     if (!cookieConsent) return;
