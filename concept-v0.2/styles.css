@@ -1038,3 +1038,24 @@ h3{
   .brand-full{display:inline}
   .brand-mobile{display:none}
 }
+
+
+/* Concept 0.2 — спокойнее иерархия: меньше декоративного шума, больше внимания человеку и CTA. */
+.hero-orb--green{opacity:.58}
+.hero-orb--gold{opacity:.48}
+.hero-aura{opacity:.48;box-shadow:0 0 0 1px rgba(232,199,122,.035),0 0 60px rgba(127,176,105,.035)}
+.hero-sparkles i{opacity:.07;box-shadow:0 0 7px 1px rgba(232,199,122,.10)}
+.hero-sparkles i:nth-child(n+5){display:none}
+.hero-sparkles i:nth-child(1),.hero-sparkles i:nth-child(2),.hero-sparkles i:nth-child(3),.hero-sparkles i:nth-child(4){animation-duration:12s}
+.magic-heading::after{box-shadow:0 0 0 3px rgba(232,199,122,.07),0 0 10px rgba(232,199,122,.20)}
+.magic-heading::before{opacity:.72}
+.magic-word{text-shadow:none}
+.magic-cat{opacity:.72;transform:scale(.86);transform-origin:center}
+.magic-cat:hover,.magic-cat:focus-visible{opacity:.9}
+.card{box-shadow:0 12px 34px rgba(31,42,31,.055)}
+.card:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(31,42,31,.075)}
+.btn-pulse{animation-duration:10s}
+@media (prefers-reduced-motion: reduce){
+  .btn-pulse{animation:none}
+  .hero-orb,.hero-aura,.hero-sparkles i{animation:none!important}
+}
