@@ -304,22 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Cats are interactive on desktop and mobile, including when reduced motion is enabled.
   document.querySelectorAll('[data-cat-clickable]').forEach(initMagicCat);
 
-  // GSAP-параллакс hero-сфер — мягкий и только desktop
-  if (desktopMagic && window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.hero-orb--green', {
-      y: -60, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
-    gsap.to('.hero-orb--gold', {
-      y: 50, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
-    gsap.to('.hero-aura', {
-      scale: 1.05, opacity: 0.7, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-    });
-  }
+  // В 0.2 декоративный parallax убран: hero остаётся спокойным и не конкурирует с содержанием.
 
   const threads = document.querySelector('.ancestral-threads');
   if (threads) {
