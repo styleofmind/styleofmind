@@ -1,4 +1,57 @@
-# Concept V2 — каталог визуальных ассетов
+# Concept V3 — документация и каталог визуальных ассетов
+
+## Концепт
+
+# Concept V2 — отдельная версия сайта
+
+Самостоятельный концепт Style of Mind. Вся рабочая версия изолирована внутри `concept-v2/`.
+
+## Структура проекта
+
+```text
+concept-v2/
+├── index.html       # разметка страницы
+├── styles.css       # стилизация страницы
+├── README.md        # карта проекта и статус
+├── ASSETS.md        # подробный каталог визуальных файлов
+└── assets/
+    ├── README.md    # карта ассетов
+    ├── generated/  # 43 сгенерированных PNG
+    ├── objects/    # реальные фото, логотип и самостоятельные объекты
+    ├── backgrounds/# отдельные фоновые изображения
+    └── корзина/    # повреждённые/непригодные файлы, не используемые сайтом
+```
+
+## Главный визуальный референс
+
+`assets/generated/звёздная_страница_психологической_практики.png`.
+
+## Рабочие изображения
+
+- Реальные фото автора и портретные объекты — только в `assets/objects/`.
+- Сгенерированные визуалы — только в `assets/generated/`.
+- Отдельные фоны — в `assets/backgrounds/`.
+- Повреждённые файлы — только в `assets/корзина/`.
+
+## Реальная референсная база автора
+
+- `assets/objects/hero-portrait.webp`
+- `assets/objects/olga-suslennikova-systemic-constellations-spb.jpg`
+- `assets/objects/video-reference/README.md`
+
+## Изоляция
+
+- Всё находится в `concept-v2/`.
+- Другие версии сайта и другие папки репозитория не изменяются.
+- Текущие пути изображений в `index.html` сохраняются рабочими.
+- Концепт остаётся `noindex,nofollow` до отдельного решения о публикации.
+
+## Текущий статус
+
+Основная HTML/CSS-страница собрана. Следующий этап — визуальная доводка по референсу, расстояния, размеры декоративных объектов и мобильная версия.
+
+
+## Каталог ассетов
 
 Каталог изображений для `concept-v2`. Имена приведены к описательному виду там, где исходное имя было техническим, обрезанным или дублирующимся. Уже содержательные русские имена сохранены.
 
@@ -70,3 +123,93 @@
 ## Важное
 
 PNG/JPG/WEBP-файлы сохранены без изменения бинарного содержимого — менялись только пути/имена файлов. Для страницы используются существующие пути из `index.html`; переименованные, но не подключённые ассеты не влияют на текущую верстку.
+
+
+## Assets
+
+Вся визуальная библиотека этой версии сайта находится только здесь, внутри `concept-v2/assets/`.
+
+## Структура
+
+```text
+assets/
+├── generated/        # 43 сгенерированных PNG: референсы, мудборды, фоны и декоративные композиции
+├── objects/          # реальные фото, логотип и отдельные визуальные объекты
+│   └── video-reference/  # описание набора стоп-кадров из видео
+├── backgrounds/      # отдельные фоновые изображения секций
+└── корзина/          # повреждённые или непригодные файлы, не используемые сайтом
+```
+
+## Правило
+
+- `generated/` — только сгенерированные визуальные материалы.
+- `objects/` — только самостоятельные реальные/вырезанные объекты и фото.
+- `backgrounds/` — только отдельные фоновые изображения.
+- `корзина/` — ничего из этой папки не подключается в `index.html`.
+
+Главный каталог с описанием каждого изображения: `concept-v2/ASSETS.md`.
+
+
+## Backgrounds
+
+Здесь будут храниться отдельные фоновые изображения для секций концепта. Каждый фон создаётся и утверждается самостоятельно, до подключения к странице.
+
+Рекомендуемые имена: `hero-background.webp`, `about-background.webp`, `method-background.webp`.
+
+Не перезаписывать исходники при подготовке новых вариантов.
+
+
+## Generated
+
+Здесь хранятся сгенерированные PNG-визуалы текущего этапа дизайна.
+
+- Описательные имена сохранены для уже понятных ассетов.
+- Технические/обрезанные имена приведены к понятным названиям.
+- Полный каталог и назначение файлов: [concept-v2/ASSETS.md](../../ASSETS.md).
+- Бинарное содержимое изображений при переименовании не изменялось.
+
+
+## Objects
+
+Здесь находятся реальные фотографии автора, логотип и отдельные самостоятельные объекты.
+
+- `hero-portrait.webp` — портретный объект для hero.
+- `olga-suslennikova-systemic-constellations-spb.jpg` — референсное фото автора; сейчас используется в hero.
+- `портрет_женщины_в_чёрной_рубашке_и_очках.png` — отдельный портретный PNG; пока не подключён.
+- `brand-mark.svg` — фирменный знак.
+- `video-reference/` — описание библиотеки стоп-кадров из видео.
+
+Повреждённые файлы не хранятся среди рабочих объектов: они вынесены в `assets/корзина/`.
+
+
+## Video reference
+
+Source video:
+https://kinescope.io/embed/gVXMqSDsVTZ2KSo5phZpQY
+
+The following still frames were provided from the video and should be treated as visual references for future site imagery:
+
+- frame_1s.jpg — 1 sec
+- frame_4s.jpg — 4 sec
+- frame_7s.jpg — 7 sec
+- frame_10s.jpg — 10 sec
+- frame_13s.jpg — 13 sec
+- frame_16s.jpg — 16 sec
+- frame_19s.jpg — 19 sec
+- frame_22s.jpg — 22 sec
+- frame_25s.jpg — 25 sec
+- frame_28s.jpg — 28 sec
+- frame_31s.jpg — 31 sec
+- frame_34s.jpg — 34 sec
+
+Use these frames together with:
+- ../hero-portrait.webp
+- ../../../generated/звёздная_страница_психологической_практики.png
+- the other real photo references in the repository.
+
+Purpose:
+Use the real reference material to preserve the subject's appearance, expression range, hair, glasses, clothing, posture and overall presence when creating new website imagery. Do not treat generated examples as replacements for the real reference material.
+
+Note:
+The still-image files themselves were supplied in the current conversation. This manifest records the reference set in the project library; the binary uploads should be added to this folder when repository binary upload is available.
+
