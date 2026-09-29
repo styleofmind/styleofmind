@@ -1059,3 +1059,68 @@ h3{
   .btn-pulse{animation:none}
   .hero-orb,.hero-aura,.hero-sparkles i{animation:none!important}
 }
+
+
+/* Concept 0.2 — явный визуальный сдвиг: спокойный editorial-режим без декоративного шума. */
+:root{
+  --radius-xl:22px;
+  --radius-lg:18px;
+  --radius-md:14px;
+  --shadow:0 10px 30px rgba(31,42,31,.055);
+  --shadow-strong:0 20px 55px rgba(31,42,31,.09);
+}
+.hero{
+  background:var(--bg-sand);
+}
+.hero-orb,
+.hero-aura,
+.hero-sparkles{
+  display:none;
+}
+.hero-grid{
+  gap:clamp(2rem,4vw,4.5rem);
+}
+.hero-copy{
+  max-width:640px;
+}
+h1{
+  font-size:clamp(2.75rem,5.2vw,5rem);
+}
+.magic-heading::before{
+  width:38px;
+  background:var(--line);
+}
+.magic-heading::after{
+  box-shadow:none;
+  background:var(--accent);
+}
+.magic-heading::after{
+  width:4px;
+  height:4px;
+}
+.magic-word{
+  text-shadow:none;
+}
+.magic-cat{
+  opacity:.52;
+  transform:scale(.78);
+  filter:grayscale(.15);
+}
+.card{
+  border:1px solid rgba(46,46,46,.12);
+  box-shadow:none;
+  border-radius:var(--radius-lg);
+}
+.card:hover{
+  transform:none;
+  box-shadow:var(--shadow);
+}
+.btn-pulse{
+  animation:none;
+}
+section{
+  padding:clamp(4rem,7vw,6rem) 0;
+}
+.sand{
+  background:var(--bg-sand);
+}
