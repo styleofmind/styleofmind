@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (desktopMagic && window.AOS) {
-    AOS.init({duration:760, once:true, offset:90, easing:'ease-out-cubic'});
+    AOS.init({duration:480, once:true, offset:120, easing:'ease-out-cubic'});
   }
 
   if (document.querySelector('.reviews-swiper') && window.Swiper) {
@@ -272,12 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Keep the illustration interactive everywhere; only auto-animate when motion is allowed.
-    if (!prefersReducedMotion) {
-      cat._poseTimer = setInterval(function () {
-        if (!document.hidden) showPose(poseIndex + 1, false);
-      }, 4200);
-    }
+    // В 0.2 кот остаётся интерактивной пасхалкой, но больше не двигается сам по себе.
 
     function openEgg() {
       const egg = document.getElementById('catEgg');
