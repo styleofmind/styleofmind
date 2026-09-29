@@ -306,6 +306,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // В 0.2 декоративный parallax убран: hero остаётся спокойным и не конкурирует с содержанием.
 
+  (function(){
+    const popup = document.getElementById('popup');
+    if (!popup) return;
+    const closeBtn = popup.querySelector('.popup-close');
+    const SHOWN_KEY = 'popup_shown_v4';
+    if (sessionStorage.getItem(SHOWN_KEY)) return;
+    let shown = false;
+    let scrollTimer = null;
+    const showPopup = function(){
+      if (shown) return;
+      shown = true;
+      popup.hidden = false;
+      sessionStorage.setItem(SHOWN_KEY, '1');
+      if (window.trackEvent) window.trackEvent('open_popup');
+      closeBtn?.focus();
+    };
+    const closePopup = function(){
+      popup.hidden = true;
+      if (window.trackEvent) window.trackEvent('close_popup');
+    };
+    const maybeShowByScroll = function(){
+      if (shown) return;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function(){
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? window.scrollY / max : 0;
+        if (pct >= .5) showPopup();
+      }, 100);
+    };
+    window.addEventListener('scroll', maybeShowByScroll, {passive:true});
+    window.setTimeout(showPopup, 45000);
+    closeBtn?.addEventListener('click', closePopup);
+    document.addEventListener('keydown', function(event){
+      if (event.key === 'Escape' && !popup.hidden) closePopup();
+    });
+  })();
+
   const threads = document.querySelector('.ancestral-threads');
   if (threads) {
     if (desktopMagic && 'IntersectionObserver' in window) {
