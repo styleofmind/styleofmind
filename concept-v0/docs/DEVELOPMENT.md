@@ -16,7 +16,7 @@
 | `assets/rasstanovki/` | Фотографии форматов расстановок |
 | `assets/certificates/` | Изображения сертификатов |
 | `assets/cats/` | Иллюстрации котиков для интерактивного элемента |
-| `blog.html`, `presentation.html`, `privacy.html` | Дополнительные страницы |
+| `pages/blog.html`, `pages/presentation.html`, `pages/privacy.html` | Дополнительные страницы |
 | `404.html` | Страница ошибки GitHub Pages |
 | `robots.txt`, `sitemap.xml` | Файлы для поисковых роботов |
 | `site.webmanifest` | Веб-манифест |
@@ -26,7 +26,7 @@
 
 ## Организация репозитория
 
-Корень репозитория одновременно является корнем публикации GitHub Pages. Поэтому index.html, 404.html, дополнительные HTML-страницы, styles.css, JavaScript-файлы, favicon.svg, site.webmanifest, robots.txt и sitemap.xml намеренно остаются в корне. Их перенос в подпапки потребовал бы перенастройки публикации и всех путей; без отдельной миграции это повышает риск неработающих страниц и ресурсов.
+Для concept-v0 корнем публикации является каталог concept-v0/. Поэтому index.html, 404.html, styles.css, JavaScript-файлы, favicon.svg, site.webmanifest, robots.txt и sitemap.xml находятся в корне concept-v0. Дополнительные HTML-страницы организованы в pages/, документация — в docs/, а изображения — в assets/. Все относительные пути проверены после переноса.
 
 Материалы, которые не нужны браузеру для отображения сайта, хранятся в docs/. Аудиты размещаются в docs/audits/, а docs/README.md служит навигацией по документации. Краткий проектный README оставлен в корне, как ожидается на GitHub.
 
