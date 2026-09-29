@@ -320,33 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  (function(){
-    const popup = document.getElementById('popup');
-    if (!popup) return;
-    const closeBtn = popup.querySelector('.popup-close');
-    const SHOWN_KEY = 'popup_shown_v3';
-    if (sessionStorage.getItem(SHOWN_KEY)) return;
-    let shown = false, scrollTimer = null;
-    function showPopup(){
-      if (shown) return;
-      shown = true; popup.hidden = false; sessionStorage.setItem(SHOWN_KEY,'1'); window.trackEvent('open_popup');
-    }
-    function closePopup(){ popup.hidden = true; window.trackEvent('close_popup'); }
-    function maybeShowByScroll(){
-      if (shown) return;
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(function(){
-        const doc = document.documentElement;
-        const max = doc.scrollHeight - window.innerHeight;
-        const pct = max > 0 ? window.scrollY / max : 0;
-        if (pct >= .5) showPopup();
-      },100);
-    }
-    window.addEventListener('scroll', maybeShowByScroll, {passive:true});
-    // Не показываем всплывающее окно автоматически по таймеру: оно не должно прерывать чтение страницы.
-    closeBtn?.addEventListener('click',closePopup);
-    document.addEventListener('keydown',function(e){ if(e.key === 'Escape' && !popup.hidden) closePopup(); });
-  })();
+  // Всплывающее окно не открывается автоматически: пользователь сам управляет им.\n
 });
 
 
