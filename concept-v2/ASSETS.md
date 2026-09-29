@@ -1,4 +1,29 @@
-# Concept V2 — каталог визуальных ассетов
+# Concept V2 — документация и каталог визуальных ассетов
+
+## Концепт
+
+# Concept V2 — отдельная версия сайта
+
+Самостоятельный визуальный концепт Style of Mind. Всё внутри этой папки относится только к Concept V2.
+
+## Структура
+
+- `assets/backgrounds/` — фоновые изображения и визуальные концепты секций.
+- `assets/objects/` — отдельные визуальные объекты, логотип и реальные фотографии.
+- `assets/objects/video-reference/` — описание референсных кадров из видео.
+- `assets/generated/` — отдельные сгенерированные материалы.
+- `ASSETS.md` — общий каталог ассетов.
+
+## Принцип работы
+
+Каждый блок страницы собирается отдельно и проверяется перед переходом к следующему. Production-сайт и папка `redesign/` не изменяются.
+
+## Статус
+
+Concept V2 находится в разработке и не является production-версией сайта.
+
+
+## Каталог ассетов
 
 Каталог изображений для `concept-v2`. Имена приведены к описательному виду там, где исходное имя было техническим, обрезанным или дублирующимся. Уже содержательные русские имена сохранены.
 
@@ -70,3 +95,73 @@
 ## Важное
 
 PNG/JPG/WEBP-файлы сохранены без изменения бинарного содержимого — менялись только пути/имена файлов. Для страницы используются существующие пути из `index.html`; переименованные, но не подключённые ассеты не влияют на текущую верстку.
+
+
+## Backgrounds
+
+В этой папке находятся фоновые изображения и визуальные концепты для секций Concept V2.
+
+Здесь есть тёмные абстрактные и графические фоны, золотые композиции, орбиты, ботанические и атмосферные сцены, а также светлые интерьерные и пейзажные варианты.
+
+Не все файлы предназначены для непосредственного использования на странице: часть является вариантом для визуального сравнения.
+
+Полный список: [`concept-v2/ASSETS.md`](../../ASSETS.md).
+
+Описания по названиям являются рабочими и не заменяют визуальную проверку изображения.
+
+
+## Generated
+
+Здесь находятся отдельные материалы, созданные в процессе разработки концепта.
+
+Если материал становится рабочим фоном страницы или самостоятельным объектом, его следует перенести в соответствующую папку: `backgrounds/` или `objects/`.
+
+Полный каталог: [`concept-v2/ASSETS.md`](../../ASSETS.md).
+
+
+## Objects
+
+Здесь находятся элементы, которые размещаются поверх фона или используются внутри секций.
+
+- `brand-mark.svg` — фирменный знак.
+- `hero-portrait.webp` — портретный объект для hero.
+- `olga-cutout-real.webp` — вырезанный реальный портрет.
+- `olga-suslennikova-systemic-constellations-spb.jpg` — реальная фотография автора.
+- `ChatGPT Image 27 сент. 2026 г., 19_15_18.png` — отдельный PNG-ассет, требующий визуальной проверки.
+
+Новые декоративные элементы добавляются сюда отдельно от фоновых изображений.
+
+Полный каталог: [`concept-v2/ASSETS.md`](../../ASSETS.md).
+
+
+## Video reference
+
+Source video:
+https://kinescope.io/embed/gVXMqSDsVTZ2KSo5phZpQY
+
+The following still frames were provided from the video and should be treated as visual references for future site imagery:
+
+- frame_1s.jpg — 1 sec
+- frame_4s.jpg — 4 sec
+- frame_7s.jpg — 7 sec
+- frame_10s.jpg — 10 sec
+- frame_13s.jpg — 13 sec
+- frame_16s.jpg — 16 sec
+- frame_19s.jpg — 19 sec
+- frame_22s.jpg — 22 sec
+- frame_25s.jpg — 25 sec
+- frame_28s.jpg — 28 sec
+- frame_31s.jpg — 31 sec
+- frame_34s.jpg — 34 sec
+
+Use these frames together with:
+- ../hero-portrait.webp
+- ../../../generated/звёздная_страница_психологической_практики.png
+- the other real photo references in the repository.
+
+Purpose:
+Use the real reference material to preserve the subject's appearance, expression range, hair, glasses, clothing, posture and overall presence when creating new website imagery. Do not treat generated examples as replacements for the real reference material.
+
+Note:
+The still-image files themselves were supplied in the current conversation. This manifest records the reference set in the project library; the binary uploads should be added to this folder when repository binary upload is available.
+
