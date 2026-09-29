@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },100);
     }
     window.addEventListener('scroll', maybeShowByScroll, {passive:true});
-    setTimeout(showPopup,45000);
+    // Не показываем всплывающее окно автоматически по таймеру: оно не должно прерывать чтение страницы.
     closeBtn?.addEventListener('click',closePopup);
     document.addEventListener('keydown',function(e){ if(e.key === 'Escape' && !popup.hidden) closePopup(); });
   })();
