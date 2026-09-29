@@ -1124,3 +1124,55 @@ section{
 .sand{
   background:var(--bg-sand);
 }
+
+
+/* Concept 0.2 — финальная полировка: спокойная иерархия, читаемость и меньше визуального шума. */
+html{scroll-behavior:smooth}
+body{background:var(--bg-sand);color:var(--text)}
+p,li{line-height:1.68}
+.text-column,.process-copy,.hero-copy{max-width:68ch}
+.hero{min-height:min(820px,92vh);display:flex;align-items:center}
+.hero-copy{padding-block:clamp(1rem,3vw,3rem)}
+.hero-subtitle{max-width:34ch;line-height:1.42}
+.hero-cta{margin-top:.8rem}
+.method-section .method-layout{max-width:760px}
+.method-section .text-column p{max-width:66ch}
+.section-heading,.magic-heading{letter-spacing:-.015em}
+.magic-heading{gap:.7rem}
+.magic-heading::before{opacity:.45}
+.magic-heading::after{opacity:.75}
+.cards-grid{align-items:stretch}
+.card{background:rgba(255,255,255,.48);backdrop-filter:none}
+.card h3{line-height:1.25}
+.card p{line-height:1.65}
+.request-card{min-height:100%}
+.request-example{line-height:1.5}
+.request-outro{max-width:70ch;margin-inline:auto}
+.diagnostic-inner,.process-layout{align-items:start}
+.diagnostic-offer{position:relative}
+.ancestral-threads{opacity:.22}
+.site-header{backdrop-filter:blur(10px);background:rgba(245,239,230,.9)}
+.btn:focus-visible,.card:focus-visible,a:focus-visible,button:focus-visible{
+  outline:3px solid var(--accent-dark);
+  outline-offset:4px;
+}
+img{max-width:100%;height:auto}
+@media (max-width:900px){
+  .hero{min-height:auto}
+  .hero-grid{gap:2.5rem}
+  .hero-copy{padding-block:1rem 0}
+}
+@media (max-width:767px){
+  section{padding-block:clamp(3.5rem,12vw,5rem)}
+  h1{font-size:clamp(2.35rem,11vw,3.7rem);line-height:1.04}
+  .hero-subtitle{font-size:1.1rem}
+  .hero-video{margin-top:.25rem}
+  .magic-heading{font-size:clamp(1.75rem,8vw,2.5rem)}
+  .card{border-radius:16px}
+  .request-card{min-height:0}
+  .diagnostic-offer{margin-top:.5rem}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .card,.btn,.magic-cat{transition:none!important}
+}
