@@ -1176,3 +1176,60 @@ img{max-width:100%;height:auto}
   html{scroll-behavior:auto}
   .card,.btn,.magic-cat{transition:none!important}
 }
+
+
+/* Concept 0.2 — структурный UX: навигация, фокус и предсказуемый ритм. */
+.skip-link{
+  position:fixed;
+  left:1rem;
+  top:1rem;
+  z-index:1000;
+  transform:translateY(-160%);
+  padding:.75rem 1rem;
+  border-radius:12px;
+  background:var(--text);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:var(--shadow-strong);
+}
+.skip-link:focus{
+  transform:translateY(0);
+}
+[id]{
+  scroll-margin-top:clamp(5rem,10vw,7rem);
+}
+:where(a,button,[role="button"],input,select,textarea):focus-visible{
+  outline:3px solid var(--accent-dark);
+  outline-offset:4px;
+}
+.magic-cat[role="button"]{
+  cursor:pointer;
+}
+.card{
+  overflow:hidden;
+}
+.request-card h3{
+  max-width:30ch;
+}
+@media (min-width:768px){
+  .requests-section .cards-grid{
+    align-items:start;
+  }
+}
+@media (max-width:767px){
+  .skip-link{
+    left:.75rem;
+    top:.75rem;
+  }
+  .hero-copy p{
+    max-width:38ch;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+}
