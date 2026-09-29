@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (document.querySelector('.reviews-swiper') && window.Swiper) {
     new Swiper('.reviews-swiper', {
-      slidesPerView:1, spaceBetween:16, autoHeight:true,
+      slidesPerView:1, spaceBetween:16, autoHeight:true, speed: prefersReducedMotion ? 0 : 420,
       navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},
       pagination:{el:'.swiper-pagination',clickable:true},
       breakpoints:{768:{slidesPerView:2,spaceBetween:24,autoHeight:false},1200:{slidesPerView:2,spaceBetween:28,autoHeight:false}}
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper(swiperEl, {
       slidesPerView: 1,
       spaceBetween: 0,
-      speed: 420,
+      speed: prefersReducedMotion ? 0 : 420,
       loop: true,
       grabCursor: true,
       resistance: true,
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       active = 1 - active;
 
-      if (withMotion) {
+      if (withMotion && !prefersReducedMotion) {
         cat.classList.remove('is-pressed');
         void cat.offsetWidth;
         cat.classList.add('is-pressed');
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const scrollByStep = (direction) => {
       const step = Math.max(carousel.clientWidth * .72, 290);
-      carousel.scrollBy({left: step * direction, behavior: 'smooth'});
+      carousel.scrollBy({left: step * direction, behavior: prefersReducedMotion ? 'auto' : 'smooth'});
     };
 
     if (prev) prev.addEventListener('click', () => scrollByStep(-1));
